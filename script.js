@@ -1,56 +1,84 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Menú para celulares
-    const menuButton = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector(".nav-links");
+  // MENÚ PARA CELULARES
+  const menuButton = document.querySelector(".menu-toggle");
+  const navigation = document.querySelector(".main-nav");
 
-    if (menuButton && navigation) {
-        menuButton.addEventListener("click", () => {
-            navigation.classList.toggle("active");
-        });
-    }
+  if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+      navigation.classList.toggle("open");
 
-    // Acordeones para mostrar y ocultar información
-    const accordionButtons = document.querySelectorAll(".accordion-button");
-
-    accordionButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const content = button.nextElementSibling;
-
-            if (content) {
-                content.classList.toggle("active");
-                button.classList.toggle("active");
-            }
-        });
+      const isOpen = navigation.classList.contains("open");
+      menuButton.setAttribute("aria-expanded", isOpen);
     });
 
-    // Ampliar imágenes al hacer clic
-    const images = document.querySelectorAll("[data-lightbox]");
-    const lightbox = document.querySelector(".lightbox");
-    const lightboxImage = document.querySelector(".lightbox-image");
-    const closeButton = document.querySelector(".lightbox-close");
-
-    images.forEach((image) => {
-        image.addEventListener("click", () => {
-            if (lightbox && lightboxImage) {
-                lightboxImage.src = image.src;
-                lightbox.classList.add("active");
-            }
-        });
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
     });
+  }
 
-    if (closeButton && lightbox) {
-        closeButton.addEventListener("click", () => {
-            lightbox.classList.remove("active");
-        });
-    }
+  // ACORDEONES DE HABILIDADES Y HERRAMIENTAS
+  const accordionButtons = document.querySelectorAll(
+    ".accordion-trigger"
+  );
 
-    if (lightbox) {
-        lightbox.addEventListener("click", (event) => {
-            if (event.target === lightbox) {
-                lightbox.classList.remove("active");
-            }
-        });
+  accordionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const panelId = button.getAttribute("aria-controls");
+      const panel = document.getElementById(panelId);
+
+      if (panel) {
+        const isExpanded =
+          button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute("aria-expanded", !isExpanded);
+        panel.hidden = isExpanded;
+      }
+    });
+  });
+
+  // AMPLIAR IMÁGENES
+  const images = document.querySelectorAll(".zoomable");
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxImage = lightbox?.querySelector("img");
+  const closeButton = document.querySelector(".lightbox-close");
+
+  const closeLightbox = () => {
+    if (lightbox && lightboxImage) {
+      lightbox.hidden = true;
+      lightboxImage.removeAttribute("src");
     }
+  };
+
+  images.forEach((image) => {
+    image.addEventListener("click", () => {
+      if (lightbox && lightboxImage) {
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        lightbox.hidden = false;
+      }
+    });
+  });
+
+  if (closeButton) {
+    closeButton.addEventListener("click", closeLightbox);
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+  });
 
 });
