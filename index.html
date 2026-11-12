@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,19 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    #inicio {
-      scroll-margin-top: 90px;
-    }
-  </style>
 </head>
 
 <body>
+
+  <a class="skip-link" href="#contenido-principal">
+    Saltar al contenido principal
+  </a>
 
   <!-- MENÚ PRINCIPAL -->
   <header class="site-header">
@@ -35,27 +28,40 @@
       <span>PORTAFOLIO</span>
     </a>
 
-    <button class="menu-toggle" aria-label="Abrir menú">
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="navegacion-principal">
       ☰
     </button>
 
-    <nav class="main-nav">
+    <nav
+      class="main-nav"
+      id="navegacion-principal"
+      aria-label="Navegación principal">
+
       <a href="#inicio">Inicio</a>
       <a href="#diseno-editorial">Diseño editorial</a>
       <a href="#ilustracion">Ilustración</a>
       <a href="#contacto">Contacto</a>
+
     </nav>
 
   </header>
 
 
-  <main>
+  <main id="contenido-principal">
 
     <!-- PORTADA -->
-    <section class="hero section-shell" id="inicio">
+    <section
+      class="hero section-shell"
+      id="inicio"
+      aria-label="Portada">
 
-      <div class="hero-ornament ornament-one">✳</div>
-      <div class="hero-ornament ornament-two">〰</div>
+      <div class="hero-ornament ornament-one" aria-hidden="true">✳</div>
+      <div class="hero-ornament ornament-two" aria-hidden="true">〰</div>
 
       <div class="hero-title-block">
 
@@ -70,7 +76,7 @@
 
       </div>
 
-      <div class="hero-doodle">
+      <div class="hero-doodle" aria-hidden="true">
         <span>✳</span>
         <span>✿</span>
         <span>〰</span>
@@ -84,13 +90,16 @@
 
 
     <!-- PRESENTACIÓN -->
-    <section class="intro section-shell" id="presentacion">
+    <section
+      class="intro section-shell"
+      id="presentacion"
+      aria-labelledby="titulo-presentacion">
 
       <div class="intro-heading">
 
         <span class="small-label">01 / SOBRE MÍ</span>
 
-        <h2>¡HOLA!</h2>
+        <h2 id="titulo-presentacion">¡HOLA!</h2>
 
         <p>
           Mi nombre es<br>
@@ -115,8 +124,8 @@
 
       </div>
 
-      <span class="leaf leaf-a">✦</span>
-      <span class="leaf leaf-b">〰</span>
+      <span class="leaf leaf-a" aria-hidden="true">✦</span>
+      <span class="leaf leaf-b" aria-hidden="true">〰</span>
 
     </section>
 
@@ -129,10 +138,14 @@
         <!-- HABILIDADES -->
         <article class="accordion-card">
 
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="skills-panel">
+          <button
+            class="accordion-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="skills-panel">
 
             <span>Habilidades</span>
-            <span class="plus">＋</span>
+            <span class="plus" aria-hidden="true">＋</span>
 
           </button>
 
@@ -156,10 +169,14 @@
         <!-- HERRAMIENTAS -->
         <article class="accordion-card">
 
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="tools-panel">
+          <button
+            class="accordion-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-panel">
 
             <span>Herramientas</span>
-            <span class="plus">＋</span>
+            <span class="plus" aria-hidden="true">＋</span>
 
           </button>
 
@@ -168,22 +185,22 @@
             <ul class="tool-list">
 
               <li>
-                <span class="app-icon ai">Ai</span>
+                <span class="app-icon ai" aria-hidden="true">Ai</span>
                 <span>Adobe Illustrator</span>
               </li>
 
               <li>
-                <span class="app-icon ps">Ps</span>
+                <span class="app-icon ps" aria-hidden="true">Ps</span>
                 <span>Adobe Photoshop</span>
               </li>
 
               <li>
-                <span class="app-icon id">Id</span>
+                <span class="app-icon id" aria-hidden="true">Id</span>
                 <span>Adobe InDesign</span>
               </li>
 
               <li>
-                <span class="app-icon fr">Fr</span>
+                <span class="app-icon fr" aria-hidden="true">Fr</span>
                 <span>Adobe Fresco</span>
               </li>
 
@@ -202,14 +219,20 @@
     </section>
 
 
-    <!-- CATEGORÍA: DISEÑO EDITORIAL -->
-    <section class="portfolio-section editorial-section" id="diseno-editorial">
+    <!-- DISEÑO EDITORIAL -->
+    <section
+      class="portfolio-section editorial-section"
+      id="diseno-editorial"
+      aria-labelledby="titulo-editorial">
 
       <div class="section-heading green-heading">
 
         <span class="small-label">02 / PROYECTOS</span>
 
-        <h2>DISEÑO EDITORIAL <span>✳</span></h2>
+        <h2 id="titulo-editorial">
+          DISEÑO EDITORIAL
+          <span aria-hidden="true">✳</span>
+        </h2>
 
         <p>
           Proyectos donde la imagen, la composición y la información se encuentran.
@@ -218,7 +241,7 @@
       </div>
 
 
-      <!-- PROYECTO SUZAN PITT -->
+      <!-- PROYECTO SUSAN PITT -->
       <article class="project project-editorial">
 
         <div class="project-copy">
@@ -227,7 +250,7 @@
             PROYECTO ACADÉMICO · 2024
           </span>
 
-          <h3>Suzan Pitt</h3>
+          <h3>Susan Pitt</h3>
 
           <p>
             Diseño de un estuche de CD, disco impreso y material editorial. El proyecto buscó recopilar y presentar información sobre algunos de los cortometrajes de la animadora experimental Suzan Pitt a través de una propuesta visual que reflejara el carácter surrealista y colorido de su trabajo.
@@ -247,12 +270,27 @@
 
         </div>
 
-
         <div class="project-gallery editorial-gallery">
 
-          <img src="Estuche y disco Susan Pitt.png" alt="Estuche y disco Suzan Pitt" class="zoomable">
+          <img
+            src="Estuche y disco Susan Pitt.png"
+            alt="Estuche de CD y disco impreso del proyecto editorial sobre la animadora Suzan Pitt"
+            class="zoomable"
+            loading="lazy"
+            decoding="async"
+            tabindex="0"
+            role="button"
+            aria-label="Ampliar imagen: Estuche de CD y disco impreso del proyecto editorial sobre la animadora Suzan Pitt">
 
-          <img src="Composición editorial Susan Pitt.png" alt="Composición editorial Suzan Pitt" class="zoomable">
+          <img
+            src="Composición editorial Susan Pitt.png"
+            alt="Composición de piezas editoriales del proyecto sobre Suzan Pitt"
+            class="zoomable"
+            loading="lazy"
+            decoding="async"
+            tabindex="0"
+            role="button"
+            aria-label="Ampliar imagen: Composición de piezas editoriales del proyecto sobre Suzan Pitt">
 
         </div>
 
@@ -261,27 +299,65 @@
 
       <div class="editorial-artwork-strip">
 
-        <img src="Ilustración editorial Asparagus.png" alt="Ilustración editorial Asparagus" class="zoomable">
+        <img
+          src="Ilustración editorial Asparagus.png"
+          alt="Ilustración editorial titulada Asparagus"
+          class="zoomable"
+          loading="lazy"
+          decoding="async"
+          tabindex="0"
+          role="button"
+          aria-label="Ampliar imagen: Ilustración editorial titulada Asparagus">
 
-        <img src="Ilustración editorial de planta.png" alt="Ilustración editorial de planta" class="zoomable">
+        <img
+          src="Ilustración editorial de planta.png"
+          alt="Ilustración editorial de una planta"
+          class="zoomable"
+          loading="lazy"
+          decoding="async"
+          tabindex="0"
+          role="button"
+          aria-label="Ampliar imagen: Ilustración editorial de una planta">
 
-        <img src="Ilustración editorial Crocus.png" alt="Ilustración editorial Crocus" class="zoomable">
+        <img
+          src="Ilustración editorial Crocus.png"
+          alt="Ilustración editorial titulada Crocus"
+          class="zoomable"
+          loading="lazy"
+          decoding="async"
+          tabindex="0"
+          role="button"
+          aria-label="Ampliar imagen: Ilustración editorial titulada Crocus">
 
-        <img src="Ilustración editorial de retrato.png" alt="Ilustración editorial de retrato" class="zoomable">
+        <img
+          src="Ilustración editorial de retrato.png"
+          alt="Ilustración editorial de un retrato"
+          class="zoomable"
+          loading="lazy"
+          decoding="async"
+          tabindex="0"
+          role="button"
+          aria-label="Ampliar imagen: Ilustración editorial de un retrato">
 
       </div>
 
     </section>
 
 
-    <!-- CATEGORÍA: ILUSTRACIÓN -->
-    <section class="portfolio-section illustration-section" id="ilustracion">
+    <!-- ILUSTRACIÓN -->
+    <section
+      class="portfolio-section illustration-section"
+      id="ilustracion"
+      aria-labelledby="titulo-ilustracion">
 
       <div class="section-heading teal-heading">
 
         <span class="small-label">03 / PROYECTOS</span>
 
-        <h2>ILUSTRACIÓN <span>✿</span></h2>
+        <h2 id="titulo-ilustracion">
+          ILUSTRACIÓN
+          <span aria-hidden="true">✿</span>
+        </h2>
 
         <p>
           Imágenes e historias construidas desde la exploración gráfica.
@@ -321,7 +397,15 @@
 
         <div class="project-image personal-image">
 
-          <img src="Ilustración familiar.png" alt="Ilustración familiar" class="zoomable">
+          <img
+            src="Ilustración familiar.png"
+            alt="Ilustración digital basada en una fotografía familiar de dos niñas"
+            class="zoomable"
+            loading="lazy"
+            decoding="async"
+            tabindex="0"
+            role="button"
+            aria-label="Ampliar imagen: Ilustración digital basada en una fotografía familiar de dos niñas">
 
         </div>
 
@@ -359,7 +443,15 @@
 
         <div class="project-image comic-image">
 
-          <img src="Cómic El precio de la venganza.png" alt="Cómic El precio de la venganza" class="zoomable">
+          <img
+            src="Cómic El precio de la venganza.png"
+            alt="Páginas ilustradas del cómic El precio de la venganza, sobre el conflicto armado colombiano"
+            class="zoomable"
+            loading="lazy"
+            decoding="async"
+            tabindex="0"
+            role="button"
+            aria-label="Ampliar imagen: Páginas ilustradas del cómic El precio de la venganza">
 
         </div>
 
@@ -396,9 +488,25 @@
 
         <div class="project-gallery shirt-gallery">
 
-          <img src="Camisetas ilustradas.png" alt="Camisetas ilustradas" class="zoomable">
+          <img
+            src="Camisetas ilustradas.png"
+            alt="Camisetas con una ilustración inspirada en el ciclismo"
+            class="zoomable"
+            loading="lazy"
+            decoding="async"
+            tabindex="0"
+            role="button"
+            aria-label="Ampliar imagen: Camisetas con una ilustración inspirada en el ciclismo">
 
-          <img src="Detalle de camiseta de ciclismo.png" alt="Detalle de camiseta de ciclismo" class="zoomable">
+          <img
+            src="Detalle de camiseta de ciclismo.png"
+            alt="Detalle de la ilustración de ciclismo aplicada a una camiseta"
+            class="zoomable"
+            loading="lazy"
+            decoding="async"
+            tabindex="0"
+            role="button"
+            aria-label="Ampliar imagen: Detalle de la ilustración de ciclismo aplicada a una camiseta">
 
         </div>
 
@@ -436,9 +544,25 @@
 
         <div class="project-gallery promo-gallery">
 
-          <img src="Bolso ilustrado.png" alt="Bolso ilustrado" class="zoomable">
+          <img
+            src="Bolso ilustrado.png"
+            alt="Bolso con diseño ilustrado para el proyecto de producto promocional"
+            class="zoomable"
+            loading="lazy"
+            decoding="async"
+            tabindex="0"
+            role="button"
+            aria-label="Ampliar imagen: Bolso con diseño ilustrado para el proyecto de producto promocional">
 
-          <img src="Diseño de producto promocional.png" alt="Diseño de producto promocional" class="zoomable">
+          <img
+            src="Diseño de producto promocional.png"
+            alt="Propuesta gráfica ilustrada para productos promocionales de una fundación"
+            class="zoomable"
+            loading="lazy"
+            decoding="async"
+            tabindex="0"
+            role="button"
+            aria-label="Ampliar imagen: Propuesta gráfica ilustrada para productos promocionales de una fundación">
 
         </div>
 
@@ -448,15 +572,18 @@
 
 
     <!-- CONTACTO -->
-    <section class="thanks-section" id="contacto">
+    <section
+      class="thanks-section"
+      id="contacto"
+      aria-labelledby="titulo-contacto">
 
-      <div class="thanks-decoration">✳</div>
+      <div class="thanks-decoration" aria-hidden="true">✳</div>
 
       <div class="thanks-content">
 
         <span class="small-label">04 / CONTACTO</span>
 
-        <h2>¡GRACIAS!</h2>
+        <h2 id="titulo-contacto">¡GRACIAS!</h2>
 
         <p>
           Gracias por tomarte el tiempo de ver mi portafolio. Espero que mi trabajo haya logrado transmitir un poco de quién soy y cómo entiendo el diseño.
@@ -472,7 +599,7 @@
 
       </div>
 
-      <div class="contact-data">
+      <div class="contact-data" aria-label="Datos de contacto">
 
         <a href="mailto:yiselnataliapc02@gmail.com">
           ✉ yiselnataliapc02@gmail.com
@@ -494,11 +621,22 @@
 
 
   <!-- VISOR DE IMÁGENES -->
-  <div class="lightbox" hidden>
+  <div
+    class="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Visor de imágenes"
+    hidden
+    tabindex="-1">
 
-    <button class="lightbox-close">×</button>
+    <button
+      class="lightbox-close"
+      type="button"
+      aria-label="Cerrar imagen ampliada">
+      ×
+    </button>
 
-    <img src="" alt="Imagen ampliada">
+    <img src="" alt="">
 
   </div>
 
