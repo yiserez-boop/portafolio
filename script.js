@@ -19,7 +19,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  // BOTONES PARA VOLVER AL INICIO
+  const homeLinks = document.querySelectorAll(
+    '.main-nav a[href="#inicio"], .back-top, .brand'
+  );
 
+  homeLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  });
   // ACORDEONES DE HABILIDADES Y HERRAMIENTAS
   const accordionButtons = document.querySelectorAll(
     ".accordion-trigger"
