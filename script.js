@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior: "smooth"
       });
     });
-  });
+  
   // ACORDEONES DE HABILIDADES Y HERRAMIENTAS
   const accordionButtons = document.querySelectorAll(
     ".accordion-trigger"
