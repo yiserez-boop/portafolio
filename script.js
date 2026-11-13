@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
   // MENÚ PARA CELULARES
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
   // BOTONES PARA VOLVER AL INICIO
   const homeLinks = document.querySelectorAll(
     '.main-nav a[href="#inicio"], .back-top, .brand'
@@ -35,8 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior: "smooth"
       });
     });
-  });
-
+    });
   // ACORDEONES DE HABILIDADES Y HERRAMIENTAS
   const accordionButtons = document.querySelectorAll(
     ".accordion-trigger"
